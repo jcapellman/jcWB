@@ -14,6 +14,10 @@ int Window::Show()
 	menubar = new Fl_Menu_Bar(0, 0, win.w(), 30);
 
 	AddItem("File", "File", "File");
+	AddItem("Edit", "Edit", "Edit");
+	AddItem("View", "View", "View");
+	AddItem("Go", "Go", "Go");
+	AddItem("Window", "Window", "Window");
 	AddItem("Help", "Help", "Help");
 
 	Fl_Input * inputURL = new Fl_Input(5, 35, win.w() - 10, 30);
