@@ -20,10 +20,14 @@ int Window::Show()
 	AddItem("Window", "Window", "Window");
 	AddItem("Help", "Help", "Help");
 
-	Fl_Input * inputURL = new Fl_Input(5, 35, win.w() - 10, 30);
+	Fl_Input * inputURL = new Fl_Input(5, 70, win.w() - 10, 30);
 
-	Fl_Multi_Browser browserContent(5, 75, win.w() - 10, 550);
+	Fl_Multi_Browser browserContent(5, 110, win.w() - 10, 550);
 
+	Fl_Box box(win.w() - 55, 35, 64, 30);
+	Fl_PNG_Image  png("icon.png");
+	box.image(png);
+	
 	win.end();
 
 	win.show();
