@@ -5,6 +5,27 @@ void Window::AddItem(const char *realname, const char *menuname, const char *sho
 	menubar->add(menuname, shortcut, nullptr, static_cast<void*>(id), flags);
 }
 
+static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
+{
+	((std::string*)userp)->append((char*)contents, size * nmemb);
+	return size * nmemb;
+}
+
+void Window::navigateURL(Fl_Widget  * widget, void*d) {
+	CURL *curl;
+	CURLcode res;
+	curl = curl_easy_init();
+
+	curl_easy_setopt(curl, CURLOPT_HTTPGET, 1);
+	curl_easy_setopt(curl, CURLOPT_URL, ((Fl_Input*)widget)->value());
+	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
+
+	res = curl_easy_perform(curl);
+	_content->add(readBuffer.c_str());
+	curl_easy_cleanup(curl);
+}
+
 int Window::Show()
 {
 	Fl_Window win(800, 600, APP_NAME);
@@ -21,8 +42,9 @@ int Window::Show()
 	AddItem("Help", "Help", "Help");
 
 	Fl_Input * inputURL = new Fl_Input(5, 70, win.w() - 10, 30);
+	//inputURL->callback((Fl_Callback*)&Window::navigateURL, &inputURL);
 
-	Fl_Multi_Browser browserContent(5, 110, win.w() - 10, 550);
+	_content = new Fl_Multi_Browser(5, 110, win.w() - 10, 550);
 
 	Fl_Box box(win.w() - 55, 35, 64, 30);
 	Fl_PNG_Image  png("icon.png");	

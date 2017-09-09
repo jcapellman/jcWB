@@ -22,5 +22,9 @@ public:
 		const char *shortcut,
 		int flags = 0);
 private:
+	void navigateURL(Fl_Widget * widget, void*d);
+
 	Fl_Menu_Bar * menubar;
+	std::string readBuffer;
+	Fl_Multi_Browser * _content;
 };
