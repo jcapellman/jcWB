@@ -14,6 +14,8 @@ public:
 	const char* GetMenuName() const { return(menuname.c_str()); }
 };
 
+static Fl_Input * inputURL;
+
 class Window
 {
 public:
@@ -21,10 +23,16 @@ public:
 	void AddItem(const char *realname,const char *menuname,
 		const char *shortcut,
 		int flags = 0);
-private:
-	void navigateURL(Fl_Widget * widget, void*d);
-
+private:	
 	Fl_Menu_Bar * menubar;
-	std::string readBuffer;
+	
 	Fl_Multi_Browser * _content;
+
+	Fl_Callback *enter_cb; 
+	void *enter_data;
+
+	void SetEnterCallback(Fl_Callback *cb, void *data) {
+		enter_cb = cb;
+		enter_data = data;
+	}
 };
