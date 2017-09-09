@@ -17,3 +17,5 @@
 #pragma comment(lib, "fltkpng.lib")
 
 using namespace std;
+
+#define APP_NAME "jcWB"

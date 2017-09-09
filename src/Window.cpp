@@ -7,7 +7,7 @@ void Window::AddItem(const char *realname, const char *menuname, const char *sho
 
 int Window::Show()
 {
-	Fl_Window win(800, 600, "lwwb");
+	Fl_Window win(800, 600, APP_NAME);
 
 	win.begin();
 	
@@ -25,7 +25,7 @@ int Window::Show()
 	Fl_Multi_Browser browserContent(5, 110, win.w() - 10, 550);
 
 	Fl_Box box(win.w() - 55, 35, 64, 30);
-	Fl_PNG_Image  png("icon.png");
+	Fl_PNG_Image  png("icon.png");	
 	box.image(png);
 	
 	Fl_Button* btnBack = new Fl_Button(5, 35, 65, 30, "@<");
