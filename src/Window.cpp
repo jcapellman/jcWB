@@ -28,15 +28,17 @@ int Window::Show()
 	Fl_PNG_Image  png("icon.png");
 	box.image(png);
 	
-	Fl_Button* btnBack = new Fl_Button(5, 35, 65, 30, "Back");
+	Fl_Button* btnBack = new Fl_Button(5, 35, 65, 30, "@<");
+	btnBack->tooltip("Back");
 
-	Fl_Button* btnForward = new Fl_Button(75, 35, 65, 30, "Forward");
+	Fl_Button* btnForward = new Fl_Button(75, 35, 65, 30, "@>");
+	btnForward->tooltip("Forward");
 
-	Fl_Button* btnRefresh = new Fl_Button(145, 35, 65, 30, "Refresh");
+	Fl_Button* btnRefresh = new Fl_Button(145, 35, 65, 30, "@reload");
+	btnRefresh->tooltip("Refresh");
 
-	Fl_Button* btnHome = new Fl_Button(215, 35, 65, 30, "Home");
-
-	Fl_Button* btnStop = new Fl_Button(285, 35, 65, 30, "Stop");
+	Fl_Button* btnStop = new Fl_Button(215, 35, 65, 30, "@square");
+	btnStop->tooltip("Stop");
 
 	win.end();
 
