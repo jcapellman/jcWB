@@ -7,6 +7,7 @@
 #include <FL/Fl_Menu_Bar.H>
 #include <FL/FL_box.h>
 #include <FL/FL_PNG_Image.h>
+#include <FL/FL_Button.h>
 
 #include <string>
 
