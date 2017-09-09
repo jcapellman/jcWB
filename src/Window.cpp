@@ -67,6 +67,8 @@ int Window::Show()
 		btnStop->tooltip("Stop");
 	win.end();
 
+	win.resizable(_content);
+
 	win.show();
 
 	return Fl::run();
