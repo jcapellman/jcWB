@@ -2,7 +2,7 @@
 
 int main()
 {
-	Window window;
+	MainWindow window;
 
 	return window.Show();
 }

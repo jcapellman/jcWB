@@ -1,6 +1,6 @@
 #include "Window.h"
 
-void Window::AddItem(const char *realname, const char *menuname, const char *shortcut, int flags) {
+void MainWindow::AddItem(const char *realname, const char *menuname, const char *shortcut, int flags) {
 	ItemData *id = new ItemData(realname, static_cast<void*>(this));
 	menubar->add(menuname, shortcut, nullptr, static_cast<void*>(id), flags);
 }
@@ -26,10 +26,10 @@ static void navigateURL(Fl_Widget  * widget, void*d) {
 	
 	curl_easy_cleanup(curl);
 
-	((Fl_Multi_Browser*)d)->add(readBuffer.c_str());
+	((Fl_Help_View*)d)->value(readBuffer.c_str());
 }
 
-int Window::Show()
+int MainWindow::Show()
 {
 	Fl_Window win(800, 600, APP_NAME);
 
@@ -44,7 +44,7 @@ int Window::Show()
 		AddItem("Help", "Help", "Help");
 
 		inputURL = new Fl_Input(5, 70, win.w() - 60, 30);
-		_content = new Fl_Multi_Browser(5, 110, win.w() - 10, 550);
+		_content = new Fl_Help_View(5, 110, win.w() - 10, win.h()-115);
 
 		Fl_Button * btnGo = new Fl_Button(win.w() - 50, 70, 45, 30, "Go");
 		btnGo->tooltip("Go");

@@ -16,7 +16,7 @@ public:
 
 static Fl_Input * inputURL;
 
-class Window
+class MainWindow
 {
 public:
 	int Show();
@@ -26,7 +26,7 @@ public:
 private:	
 	Fl_Menu_Bar * menubar;
 	
-	Fl_Multi_Browser * _content;
+	Fl_Help_View * _content;
 
 	Fl_Callback *enter_cb; 
 	void *enter_data;
