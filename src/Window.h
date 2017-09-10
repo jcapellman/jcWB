@@ -24,7 +24,9 @@ public:
 	void AddItem(const char *realname,const char *menuname,
 		const char *shortcut,
 		int flags = 0);
-private:	
+private:
+	stack<string> previousURLs;
+
 	Fl_Menu_Bar * menubar;
 	
 	Fl_Help_View * _content;

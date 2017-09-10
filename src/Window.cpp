@@ -2,7 +2,7 @@
 
 void MainWindow::AddItem(const char *realname, const char *menuname, const char *shortcut, int flags) {
 	ItemData *id = new ItemData(realname, static_cast<void*>(this));
-	menubar->add(menuname, shortcut, nullptr, static_cast<void*>(id), flags);
+	menubar->add(menuname, shortcut, NULL, static_cast<void*>(id), flags);
 }
 
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
@@ -65,16 +65,20 @@ int MainWindow::Show()
 	
 		Fl_Button* btnBack = new Fl_Button(5, 35, 65, 30, "@<");
 		btnBack->tooltip("Back");
+		btnBack->deactivate();
 
 		Fl_Button* btnForward = new Fl_Button(75, 35, 65, 30, "@>");
 		btnForward->tooltip("Forward");
+		btnForward->deactivate();
 
 		Fl_Button* btnRefresh = new Fl_Button(145, 35, 65, 30, "@reload");
 		btnRefresh->tooltip("Refresh");
+		btnRefresh->deactivate();
 
 		Fl_Button* btnStop = new Fl_Button(215, 35, 65, 30, "@square");
 		btnStop->tooltip("Stop");
-		
+		btnStop->deactivate();
+
 		statusbar = new Fl_Box(0, win.h() - 20, win.w(), 20);
 		statusbar->box(FL_FLAT_BOX);
 		statusbar->align(FL_ALIGN_LEFT | FL_ALIGN_INSIDE);
