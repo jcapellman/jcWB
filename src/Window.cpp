@@ -11,8 +11,14 @@ static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *use
 	return size * nmemb;
 }
 
-static void updateStatusBar(const char * str) {
-	statusbar->label(str);
+static void updateStatusBar(const char * arg1, const char * arg2 = NULL) {
+	string fullString = string(arg1, strlen(arg1));
+
+	if (arg2 != NULL) {
+		fullString.assign(arg2, strlen(arg2));
+	}
+
+	statusbar->copy_label(fullString.c_str());
 }
 
 static string dtos(double value) {
@@ -27,7 +33,7 @@ static void navigateURL(Fl_Widget  * widget, void*d) {
 	curl = curl_easy_init();
 	std::string readBuffer;
 
-	updateStatusBar(inputURL->value());
+	updateStatusBar("Connecting to ", inputURL->value());
 
 	curl_easy_setopt(curl, CURLOPT_HTTPGET, 1);
 	curl_easy_setopt(curl, CURLOPT_URL, inputURL->value());
@@ -40,7 +46,7 @@ static void navigateURL(Fl_Widget  * widget, void*d) {
 
 	((Fl_Help_View*)d)->value(readBuffer.c_str());
 
-	updateStatusBar(STATUS_BAR_MSG_DOCUMENT_DONE);
+	updateStatusBar(STATUS_BAR_MSG_DOCUMENT_DONE, NULL);
 }
 
 int MainWindow::Show()
