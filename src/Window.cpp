@@ -15,6 +15,12 @@ static void updateStatusBar(const char * str) {
 	statusbar->label(str);
 }
 
+static string dtos(double value) {
+	ostringstream strs;
+	strs << value;
+	return strs.str();
+}
+
 static void navigateURL(Fl_Widget  * widget, void*d) {
 	CURL *curl;
 	CURLcode res;
@@ -39,7 +45,9 @@ static void navigateURL(Fl_Widget  * widget, void*d) {
 
 int MainWindow::Show()
 {
-	Fl_Window win(800, 600, APP_NAME);
+	string title = APP_NAME + " - [Version " + APP_VERSION + "]";
+
+	Fl_Window win(800, 600, title.c_str());
 	
 	win.begin();	
 		menubar = new Fl_Menu_Bar(0, 0, win.w(), 30);

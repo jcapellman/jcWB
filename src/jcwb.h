@@ -17,6 +17,7 @@
 // Standard C++ Headers
 #include <string>
 #include <stack>
+#include <sstream>
 
 // Libraries
 #pragma comment(lib, "fltk.lib")
@@ -27,6 +28,7 @@
 
 using namespace std;
 
-#define APP_NAME "jcWB"
+static string APP_NAME = "jcWB";
+static string APP_VERSION = "0.1.0.090917";
 
 #define STATUS_BAR_MSG_DOCUMENT_DONE "Document Done"
