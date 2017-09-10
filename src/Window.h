@@ -15,6 +15,7 @@ public:
 };
 
 static Fl_Input * inputURL;
+static Fl_Box * statusbar;
 
 class MainWindow
 {

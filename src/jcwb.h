@@ -27,3 +27,5 @@
 using namespace std;
 
 #define APP_NAME "jcWB"
+
+#define STATUS_BAR_MSG_DOCUMENT_DONE "Document Done"
