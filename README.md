@@ -1,5 +1,5 @@
 # jcWB
-An ultra light weight cross-platform web browser using FLTK and C++.
+An ultra light weight cross-platform web browser using FLTK and C++.  The idea is to not attempt to replace Edge, Chrome, Firefox etc. as a 1st class browser for current platforms, but give a fast and lightweight current browser for older platforms such as SGI/IRIX.
 
 ## Project Goals
 * Very little footprint to afford a fast browsing experience on lowerend machines
