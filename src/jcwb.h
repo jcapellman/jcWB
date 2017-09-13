@@ -12,7 +12,7 @@
 #include <FL/Fl_Button.H>
 
 // Curl Headers
-#include <curl/curl.h>
+#include "curl/curl.h"
 
 // Standard C++ Headers
 #include <string>

@@ -146,10 +146,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="jcwb.cpp" />
+    <ClCompile Include="NavBarButton.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="jcwb.h" />
+    <ClInclude Include="NavBarButton.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>

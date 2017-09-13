@@ -1,4 +1,5 @@
 #include "Window.h"
+#include "NavBarButton.h"
 
 void MainWindow::AddItem(const char *realname, const char *menuname, const char *shortcut, int flags) {
 	ItemData *id = new ItemData(realname, static_cast<void*>(this));
@@ -28,10 +29,8 @@ static string dtos(double value) {
 }
 
 static void navigateURL(Fl_Widget  * widget, void*d) {
-	CURL *curl;
-	CURLcode res;
-	curl = curl_easy_init();
-	std::string readBuffer;
+	CURL *curl = curl_easy_init();
+	string readBuffer;
 
 	updateStatusBar("Connecting to ", inputURL->value());
 
@@ -40,7 +39,7 @@ static void navigateURL(Fl_Widget  * widget, void*d) {
 	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
 	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
 
-	res = curl_easy_perform(curl);
+	CURLcode res = curl_easy_perform(curl);
 	
 	curl_easy_cleanup(curl);
 
@@ -77,21 +76,10 @@ int MainWindow::Show()
 		
 		box.image(png);
 	
-		Fl_Button* btnBack = new Fl_Button(5, 35, 65, 30, "@<");
-		btnBack->tooltip("Back");
-		btnBack->deactivate();
-
-		Fl_Button* btnForward = new Fl_Button(75, 35, 65, 30, "@>");
-		btnForward->tooltip("Forward");
-		btnForward->deactivate();
-
-		Fl_Button* btnRefresh = new Fl_Button(145, 35, 65, 30, "@reload");
-		btnRefresh->tooltip("Refresh");
-		btnRefresh->deactivate();
-
-		Fl_Button* btnStop = new Fl_Button(215, 35, 65, 30, "@square");
-		btnStop->tooltip("Stop");
-		btnStop->deactivate();
+		NavBarButton * btnBack = new NavBarButton("Back", "@<", false, 5, 35, 65, 30);
+		NavBarButton * btnForward = new NavBarButton("Foward", "@>", false, 75, 35, 65, 30);
+		NavBarButton * btnRefresh = new NavBarButton("Refresh", "@reload", false, 145, 35, 65, 30);
+		NavBarButton * btnStop = new NavBarButton("Stop", "@square", false, 215, 35, 65, 30);
 
 		statusbar = new Fl_Box(0, win.h() - 20, win.w(), 20);
 		statusbar->box(FL_FLAT_BOX);

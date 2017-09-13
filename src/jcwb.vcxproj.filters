@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="jcwb.cpp" />
+    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="NavBarButton.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="jcwb.h" />
+    <ClInclude Include="Window.h" />
+    <ClInclude Include="NavBarButton.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\psd\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{066cd797-5848-49f7-8c86-0889a31df481}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
