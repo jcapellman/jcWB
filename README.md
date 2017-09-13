@@ -8,6 +8,12 @@ An ultra light weight cross-platform web browser using FLTK and C++.  The idea i
 ## Compiling
 * Requires FLTK (www.fltk.org), make sure to have libX11 (sudo apt-get install libx11-dev)
 * Requires Curl (https://curl.haxx.se/download.html)
+* Libpng sudo apt-get install libpng-dev
+
+I have been testing on:
+* Windows 10 with Visual Studio 2017 Preview
+* Ubuntu with g++
+* OpenSuse with g++
 
 ## Roadmap
 ### 0.1 Release
