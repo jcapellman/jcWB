@@ -5,6 +5,10 @@ An ultra light weight cross-platform web browser using FLTK and C++.  The idea i
 * Very little footprint to afford a fast browsing experience on lowerend machines
 * Minimal featureset to focus on browsing only
 
+## Compiling
+* Requires FLTK (www.fltk.org), make sure to have libX11 (sudo apt-get install libx11-dev)
+* Requires Curl (https://curl.haxx.se/download.html)
+
 ## Roadmap
 ### 0.1 Release
 * Basic UI for the Browser (Window, Menu, Action Buttons)
