@@ -6,11 +6,17 @@
     <ClCompile Include="NavBarButton.cpp">
       <Filter>Objects</Filter>
     </ClCompile>
+    <ClCompile Include="StatusBar.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="jcwb.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="NavBarButton.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="StatusBar.h">
       <Filter>Objects</Filter>
     </ClInclude>
   </ItemGroup>

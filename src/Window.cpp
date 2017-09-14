@@ -19,7 +19,6 @@ static void updateStatusBar(const char * arg1, const char * arg2 = NULL) {
 		fullString.assign(arg2, strlen(arg2));
 	}
 
-	statusbar->copy_label(fullString.c_str());
 }
 
 static string dtos(double value) {
@@ -81,9 +80,7 @@ int MainWindow::Show()
 		NavBarButton * btnRefresh = new NavBarButton("Refresh", "@reload", false, 145, 35, 65, 30);
 		NavBarButton * btnStop = new NavBarButton("Stop", "@square", false, 215, 35, 65, 30);
 
-		statusbar = new Fl_Box(0, win.h() - 20, win.w(), 20);
-		statusbar->box(FL_FLAT_BOX);
-		statusbar->align(FL_ALIGN_LEFT | FL_ALIGN_INSIDE);
+		statusBar = new StatusBar(win.w(), win.h());
 		
 	win.end();
 

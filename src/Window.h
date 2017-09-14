@@ -2,6 +2,8 @@
 
 #include "jcwb.h"
 
+#include "StatusBar.h"
+
 class ItemData {
 	std::string menuname;  // use for keeping track of the 'internal menu name'
 	void *data;            // use for keeping track of 'this'
@@ -15,7 +17,6 @@ public:
 };
 
 static Fl_Input * inputURL;
-static Fl_Box * statusbar;
 
 class MainWindow
 {
@@ -26,6 +27,7 @@ public:
 		int flags = 0);
 private:
 	stack<string> previousURLs;
+	StatusBar * statusBar;
 
 	Fl_Menu_Bar * menubar;
 	
